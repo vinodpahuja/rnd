@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+	<servlet>
+		<servlet-name>Service</servlet-name>
+		<servlet-class>rnd.webapp.gwt.server.ServiceImpl</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>Service</servlet-name>
+		<url-pattern>/Service</url-pattern>
+	</servlet-mapping>
+
+</web-app>

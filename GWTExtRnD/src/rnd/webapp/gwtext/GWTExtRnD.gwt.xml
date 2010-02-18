@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<module>
+
+	<inherits name="com.google.gwt.user.User" />
+	<inherits name="com.gwtext.GwtExt" />
+	<inherits name="com.google.gwt.core.Core" />
+	<inherits name="com.google.gwt.user.History" />
+	<inherits name="com.google.gwt.i18n.I18N" />
+	<!-- 
+		<inherits name="rnd.webapp.gwt.GWT" />
+	-->
+
+	<entry-point class="rnd.webapp.gwtext.client.panel.TestPanel" />
+
+	<!--
+		<entry-point class="rnd.webapp.gwtext.client.panel.TestSelectionField" />
+		<entry-point class="rnd.webapp.gwtext.client.panel.TestPanel" />		
+		<entry-point class="rnd.webapp.gwtext.client.panel.form.SimpleFormSample" />
+		<entry-point class="rnd.webapp.gwtext.client.Home" />
+		<entry-point class="rnd.webapp.gwtext.client.TestTable" />
+		<entry-point class="rnd.webapp.gwtext.client.HelloGWTWorld" />
+	-->
+	
+	<stylesheet src="js/ext/resources/css/ext-all.css" />
+	<script src="js/ext/adapter/ext/ext-base.js" />
+	<script src="js/ext/ext-all.js" />
+	
+</module>

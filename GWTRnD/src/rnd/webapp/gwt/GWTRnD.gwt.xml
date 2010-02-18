@@ -1,0 +1,17 @@
+<module>
+	<inherits name="com.google.gwt.user.User" />
+
+	<entry-point class="rnd.webapp.gwt.client.RemoteHelloGWTWorld" />
+
+	<!--
+		<entry-point class="rnd.webapp.gwt.client.HelloTable" />
+		
+		<entry-point class="rnd.webapp.gwt.client.HelloGWTWorld" />
+		
+		<entry-point class="rnd.webapp.gwt.client.RemoteHelloGWTWorld" />
+		
+	-->
+
+	<servlet path="/Service" class="rnd.webapp.gwt.server.ServiceImpl" />
+
+</module>

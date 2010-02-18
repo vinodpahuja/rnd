@@ -1,0 +1,27 @@
+<project default="war">
+
+	<property name="GWT_HOME" value="E:\Data\Vinod\My Projects\WebApp\GWT\GWT\gwt-windows-1.5.3" />
+
+	<target name="war">
+
+		<delete file="GWTRnD.jar" />
+		<jar destfile="GWTRnD.jar">
+			<fileset dir="bin">
+				<include name="**/*.class" />
+			</fileset>
+		</jar>
+
+		<delete file="GWTRnD.war" />
+		<war destfile="GWTRnD.war" webxml="web.xml">
+
+			<fileset dir="www/rnd.webapp.gwt.GWT" />
+
+			<zipfileset dir="${GWT_HOME}" prefix="WEB-INF/lib">
+				<filename name="gwt-servlet.jar" />
+			</zipfileset>
+
+			<zipfileset file="GWTRnD.jar" prefix="WEB-INF/lib" />
+
+		</war>
+	</target>
+</project>
