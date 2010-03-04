@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="var" path="LIB_HOME/GWTExt/gwtext-2.0.6/gwtext.jar"/>
 	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry kind="lib" path="/MyWTApp/war/WEB-INF/lib/gwtext.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

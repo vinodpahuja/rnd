@@ -14,7 +14,7 @@ public class TestJDBC {
 
 		String className = "org.hsqldb.jdbcDriver";
 		// String url = "jdbc:hsqldb:hsql://localhost/xdb";
-		String url = "jdbc:hsqldb:file:testdb";
+		String url = "jdbc:hsqldb:file:/home/vinodp/Data/lib/Perisistence/testdb";
 
 		introspectDB(className, url);
 
@@ -24,8 +24,8 @@ public class TestJDBC {
 		
 		Connection conn = getConnnection(className, url);
 
-		DatabaseMetaData metaData = conn.getMetaData();
-		ResultSet schemas = metaData.getSchemas();
+		DatabaseMetaData dmd = conn.getMetaData();
+		ResultSet schemas = dmd.getSchemas();
 		ResultSetMetaData rsmd = schemas.getMetaData();
 
 		int cc = rsmd.getColumnCount();
