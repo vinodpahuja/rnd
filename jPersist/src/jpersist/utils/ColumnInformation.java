@@ -19,7 +19,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Types;
-import jpersist.*;
+
+import jpersist.JPersistException;
 
 /**
  * This class provides column information for a given result set.

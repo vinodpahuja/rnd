@@ -15,8 +15,8 @@
 
 package jpersist.utils;
 
-import java.sql.ResultSet;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public interface PreparedQuery
   {

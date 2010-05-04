@@ -15,10 +15,10 @@
 
 package jpersist.annotations;
 
-import java.lang.annotation.Target;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * This annotation can be used if a class instance is to be used for a global update 

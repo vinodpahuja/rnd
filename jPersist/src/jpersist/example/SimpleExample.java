@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
+
 import jpersist.DatabaseManager;
 import jpersist.JPersistException;
 

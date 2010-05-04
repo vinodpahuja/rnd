@@ -25,15 +25,16 @@ import java.sql.Savepoint;
 import java.sql.Statement;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Map;
-import jcommontk.utils.StringUtils;
-import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import jcommontk.inflector.SimpleInflector;
+import jcommontk.utils.StringUtils;
 import jpersist.interfaces.ColumnMapping;
 import jpersist.interfaces.TableMapping;
 

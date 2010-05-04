@@ -17,9 +17,12 @@ package jpersist.example;
 
 import java.sql.ResultSet;
 import java.util.logging.Level;
-import jpersist.*;
-import jpersist.interfaces.ResultObject;
 import java.util.logging.Logger;
+
+import jpersist.Database;
+import jpersist.DatabaseManager;
+import jpersist.JPersistException;
+import jpersist.interfaces.ResultObject;
 
 public class ProxyExample
   {

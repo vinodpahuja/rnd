@@ -16,7 +16,7 @@ public class TestJPersist {
 		try {
 			DatabaseManager.setLogLevel(Level.ALL);
 
-			dbm = DatabaseManager.getUrlDefinedDatabaseManager("testdb", 10, "org.hsqldb.jdbcDriver", "jdbc:hsqldb:file:/home/vinodp/Data/lib/Perisistence/testdb",null,"PUBLIC");
+			dbm = DatabaseManager.getUrlDefinedDatabaseManager("testdb", 10, "org.hsqldb.jdbcDriver", "jdbc:hsqldb:file:/home/vinodp/Data/Database/TestDB/testdb",null,"PUBLIC");
 
 			// Clean out contacts
 			dbm.executeUpdate("delete from contacts");

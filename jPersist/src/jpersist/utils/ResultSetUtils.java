@@ -20,7 +20,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.Map;
-import jpersist.*;
+
+import jpersist.JPersistException;
 
 /**
  * This class provides several static utility methods for retrieving data from a result set.

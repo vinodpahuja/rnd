@@ -15,32 +15,33 @@
 
 package jpersist;
 
-import javax.naming.NamingException;
-import jcommontk.utils.XMLParser;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import jcommontk.utils.StringUtils;
-import jcommontk.utils.XMLParserException;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
+
 import jcommontk.utils.LoggerUtils;
+import jcommontk.utils.StringUtils;
+import jcommontk.utils.XMLParser;
+import jcommontk.utils.XMLParserException;
 import jpersist.interfaces.ColumnMapping;
 import jpersist.interfaces.TableMapping;
 import jpersist.utils.ResultSetUtils;
-//import jwebtk.licensing.License;
-//import jwebtk.licensing.LicenseException;
+
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 

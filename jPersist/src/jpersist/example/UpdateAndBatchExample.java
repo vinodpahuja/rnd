@@ -17,6 +17,7 @@ package jpersist.example;
 
 import java.util.ArrayList;
 import java.util.logging.Level;
+
 import jpersist.Database;
 import jpersist.DatabaseManager;
 import jpersist.JPersistException;

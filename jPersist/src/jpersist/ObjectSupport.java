@@ -16,36 +16,37 @@
 package jpersist;
 
 import java.lang.reflect.Array;
-import jcommontk.object.ObjectFiller;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.List;
-import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 import java.util.Queue;
+import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.zip.CRC32;
+
 import jcommontk.object.ObjectConverter;
+import jcommontk.object.ObjectFiller;
 import jcommontk.object.ObjectFiller.GetHandler;
 import jcommontk.object.ObjectFiller.ItemNotFoundException;
 import jcommontk.utils.StringUtils;
-import jpersist.interfaces.ColumnMapping;
-import jpersist.interfaces.GeneratedKeys;
+import jpersist.annotations.ConcreteTableInheritance;
 import jpersist.annotations.GlobalDelete;
 import jpersist.annotations.GlobalUpdate;
-import jpersist.annotations.UpdateNullValues;
 import jpersist.annotations.SingleTableInheritance;
-import jpersist.annotations.ConcreteTableInheritance;
+import jpersist.annotations.UpdateNullValues;
+import jpersist.interfaces.ColumnMapping;
+import jpersist.interfaces.GeneratedKeys;
 
 // TODO check parent id for null value
 @SuppressWarnings("unchecked")

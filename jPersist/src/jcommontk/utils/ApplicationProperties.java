@@ -17,8 +17,8 @@ package jcommontk.utils;
 
 import java.io.FileNotFoundException;
 import java.net.URL;
-import java.util.Properties;
 import java.util.Enumeration;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

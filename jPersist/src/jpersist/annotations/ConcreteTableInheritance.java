@@ -15,10 +15,10 @@
 
 package jpersist.annotations;
 
-import java.lang.annotation.Target;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * Using this annotation anywhere in the inheritance chain will cause jPersist 

@@ -15,15 +15,16 @@
 
 package jpersist;
 
-import java.lang.reflect.InvocationTargetException;
-import jcommontk.utils.StringUtils;
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.sql.SQLException;
 import java.util.ListIterator;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import jcommontk.object.ObjectConverter;
+import jcommontk.utils.StringUtils;
 import jpersist.interfaces.ResultObject;
 
 @SuppressWarnings("unchecked")

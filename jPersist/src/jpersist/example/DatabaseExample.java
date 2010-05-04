@@ -16,10 +16,11 @@
 package jpersist.example;
 
 import java.sql.Savepoint;
-import java.util.Collection;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
+
 import jpersist.Database;
 import jpersist.DatabaseManager;
 import jpersist.Entity;

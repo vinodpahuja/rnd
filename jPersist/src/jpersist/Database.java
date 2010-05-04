@@ -34,12 +34,13 @@ import java.sql.Savepoint;
 import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Timestamp;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import jcommontk.utils.StringUtils;
 import jpersist.ObjectSupport.NullValue;
 import jpersist.interfaces.AsciiStream;
@@ -47,8 +48,6 @@ import jpersist.interfaces.BinaryStream;
 import jpersist.interfaces.CharacterStream;
 import jpersist.interfaces.ColumnMapping;
 import jpersist.interfaces.TableMapping;
-//import jwebtk.licensing.License;
-//import jwebtk.licensing.LicenseException;
 
 /**
  * The center of JPersist, the Database class provides a seemless integration 

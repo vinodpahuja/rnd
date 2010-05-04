@@ -34,12 +34,13 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import jpersist.interfaces.AsciiStream;
 import jpersist.interfaces.AsciiStreamAdapter;
 import jpersist.interfaces.BinaryStream;
 import jpersist.interfaces.BinaryStreamAdapter;
-import jpersist.interfaces.CharacterStreamAdapter;
 import jpersist.interfaces.CharacterStream;
+import jpersist.interfaces.CharacterStreamAdapter;
 import jpersist.interfaces.ResultObject;
 
 /**
