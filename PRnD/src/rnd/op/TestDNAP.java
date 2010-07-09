@@ -10,7 +10,8 @@ public class TestDNAP {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(TestDNAP.class.getClassLoader().getResourceAsStream("pmf.properties"));
 		System.out.println(pmf);
 
-		// DNAPObjectPersistor persistor = new DNAPObjectPersistor(pmf);
+//		 DNAPObjectPersistor persistor = new DNAPObjectPersistor(pmf);
+//		 persistor.saveObject(new User());
 
 	}
 }
