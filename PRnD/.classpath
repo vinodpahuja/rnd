@@ -5,8 +5,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/Persistence"/>
 	<classpathentry kind="lib" path="/Persistence/lib/jdo2-api-2.3-eb.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/AA"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/MyWT"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/DataNucleus"/>
-	<classpathentry kind="var" path="USER_LIB/mysql-connector-java-5.1.12/mysql-connector-java-5.1.12-bin.jar"/>
+	<classpathentry kind="var" path="USER_LIB/mysql-connector-java-5.1.12-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

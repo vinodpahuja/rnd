@@ -6,11 +6,11 @@ import javax.jdo.PersistenceManagerFactory;
 import rnd.op.dnap.DNAPJDObjectPersistor;
 import aa.server.User;
 
-public class TestDNAP {
+public class TestJPA {
 
 	public static void main(String[] args) {
 
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(TestDNAP.class.getClassLoader().getResourceAsStream("pmf.properties"));
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(TestJPA.class.getClassLoader().getResourceAsStream("pmf.properties"));
 		System.out.println(pmf);
 
 		ObjectPersistor persistor = new DNAPJDObjectPersistor(pmf);
