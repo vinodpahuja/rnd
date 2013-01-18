@@ -3,7 +3,7 @@ package rnd.op;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManagerFactory;
 
-import rnd.op.dnap.DNAPJDObjectPersistor;
+import rnd.op.dnap.DNAPJPAObjectPersistor;
 import aa.server.User;
 
 public class TestJPA {
@@ -13,7 +13,7 @@ public class TestJPA {
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(TestJPA.class.getClassLoader().getResourceAsStream("pmf.properties"));
 		System.out.println(pmf);
 
-		ObjectPersistor persistor = new DNAPJDObjectPersistor(pmf);
+		ObjectPersistor persistor = new DNAPJPAObjectPersistor();
 
 //		User user = new User();
 //		user.setUserName("vinod.pahuja");

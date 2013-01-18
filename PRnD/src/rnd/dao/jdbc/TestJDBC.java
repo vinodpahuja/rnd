@@ -8,41 +8,54 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 
+import com.microsoft.sqlserver.jdbc.SQLServerDriver;
+
 public class TestJDBC {
 
 	public static void main(String[] args) throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException {
 
-		String className = "org.hsqldb.jdbcDriver";
-		// String url = "jdbc:hsqldb:hsql://localhost/xdb";
-		String url = "jdbc:hsqldb:file:/home/vinodp/Data/lib/Perisistence/testdb";
+		// String className = "org.hsqldb.jdbcDriver";
+		// String url =
+		// "jdbc:hsqldb:file:/home/vinodp/Data/lib/Perisistence/testdb";
+
+		String className = SQLServerDriver.class.getName();
+		String url = "jdbc:sqlserver://20.198.56.93:1433;DatabaseName=mydb;Username=sqlinst1;password=sqlinst1";
 
 		introspectDB(className, url);
 
 	}
 
 	private static void introspectDB(String className, String url) throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException {
-		
+
 		Connection conn = getConnnection(className, url);
 
 		DatabaseMetaData dmd = conn.getMetaData();
-		ResultSet schemas = dmd.getSchemas();
-		ResultSetMetaData rsmd = schemas.getMetaData();
 
+		ResultSet schemasRS = dmd.getSchemas(null, "dbo");
+		while (schemasRS.next()) {
+			String schema = schemasRS.getString(1);
+			System.out.print("\t\t" + schema);
+			System.out.println();
+			ResultSet tablesRS = dmd.getTables(null, schema, "User", new String[] { "TABLE", "VIEW" });
+			int cc = printRSMDHeader(tablesRS.getMetaData());
+			while (tablesRS.next()) {
+				for (int i = 1; i <= cc; i++) {
+					Object tableInfo = tablesRS.getObject(i);
+					System.out.print("\t\t" + tableInfo);
+				}
+				System.out.println();
+			}
+		}
+
+	}
+
+	private static int printRSMDHeader(ResultSetMetaData rsmd) throws SQLException {
 		int cc = rsmd.getColumnCount();
-		System.out.println("colCnt" + cc);
-
 		for (int i = 1; i <= cc; i++) {
 			System.out.print("\t\t" + rsmd.getColumnLabel(i));
 		}
 		System.out.println();
-
-		while (schemas.next()) {
-			for (int i = 1; i <= cc; i++) {
-				Object object = schemas.getObject(i);
-				System.out.print("\t\t" + object);
-			}
-			System.out.println();
-		}
+		return cc;
 	}
 
 	public static Connection getConnnection(String className, String url) throws SQLException, InstantiationException, IllegalAccessException, ClassNotFoundException {

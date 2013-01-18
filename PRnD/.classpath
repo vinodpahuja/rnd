@@ -5,5 +5,8 @@
 	<classpathentry kind="lib" path="/Persistence/lib/jdo2-api-2.3-eb.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/AA"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Persistence/lib/sqljdbc4.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/jPersist"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/MyWT"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
