@@ -1062,6 +1062,23 @@ public final class DatabaseManager
         
         return null;
       }
+    
+    /**
+     * Builds a select query from a class that matches up to a table and id column value,
+     * then loads the object (using set methods that match columns in a table matched to 
+     * the class name) with the result.
+     * 
+     * @param <T>
+     * @param id
+     * @param cs
+     * @return
+     * @throws JPersistException
+     */
+    
+    public <T> T loadObject(Object id, Class<T> cs) throws JPersistException
+    {
+      return loadObject(cs, cs.getSimpleName()+"id = ? ", id);
+    }
 
     /**
      * Builds a select query from a class that matches up to a table, and then loads the 

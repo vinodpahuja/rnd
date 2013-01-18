@@ -1717,6 +1717,8 @@ public final class Database
               preparedStatement.setArray(i+1, (Array)objects[i]);
             else if (objects[i] instanceof BigDecimal)
               preparedStatement.setBigDecimal(i+1, (BigDecimal)objects[i]);
+            else if (objects[i] instanceof Long)
+                preparedStatement.setLong(i+1, (Long)objects[i]);
             else if (objects[i] instanceof Blob)
               preparedStatement.setBlob(i+1, (Blob)objects[i]);
             else if (objects[i] instanceof Clob)

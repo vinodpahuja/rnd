@@ -633,7 +633,7 @@ public final class MetaData
 
         resultSet.close();
 
-        if ((resultSet = statement.executeQuery("select * from " + table.getTableName() + " where 1 = 0")) != null)
+        if ((resultSet = statement.executeQuery("select * from [" + table.getTableName() + "] where 1 = 0")) != null)
           {
             ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
 

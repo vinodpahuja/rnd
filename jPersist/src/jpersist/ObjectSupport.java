@@ -85,12 +85,13 @@ final class ObjectSupport
               {
                 sqlStatement.append(" from ").append(fromStrBuf);
 
-                if (whereStrBuf.length() > 0)
-                  {
+//                if (whereStrBuf.length() > 0)
+//                  {
                     if (externalClauses == null || !externalClauses.startsWith("where"))
                       sqlStatement.append(" where ").append(whereStrBuf);
-                  }
-                else if (idColumnsOnly)
+//                  }
+//                else 
+                	if (idColumnsOnly)
                   throw new JPersistException("useIdColumnsOnly is defined, but there are no Id field values available");
               }
           }
@@ -1162,7 +1163,7 @@ final class ObjectSupport
                 allFieldsSt = singleTable || objectClass.isAnnotationPresent(ConcreteTableInheritance.class);
         int numberOfTables = 0;
         
-        while (p == null || (p != null && (!objectClass.getPackage().equals(ObjectSupport.class.getPackage()) && !objectClass.getPackage().getName().equals("java.lang"))))
+        while (p == null || (p != null && (!objectClass.getPackage().equals(ObjectSupport.class.getPackage()) && !objectClass.getPackage().getName().equals("java.lang") && !objectClass.getPackage().getName().equals("rnd.mywt.server.bean"))))
           {
             classes.add(objectClass);
 
