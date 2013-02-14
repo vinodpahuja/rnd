@@ -19,7 +19,7 @@ public class TestJDBC {
 		// "jdbc:hsqldb:file:/home/vinodp/Data/lib/Perisistence/testdb";
 
 		String className = SQLServerDriver.class.getName();
-		String url = "jdbc:sqlserver://20.198.56.93:1433;DatabaseName=mydb;Username=sqlinst1;password=sqlinst1";
+		String url = "jdbc:sqlserver://localhost:1433;DatabaseName=mydb;Username=sqlinst1;password=sqlinst1";
 
 		introspectDB(className, url);
 

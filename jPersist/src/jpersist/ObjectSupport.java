@@ -85,12 +85,10 @@ final class ObjectSupport
               {
                 sqlStatement.append(" from ").append(fromStrBuf);
 
-//                if (whereStrBuf.length() > 0)
-//                  {
-                    if (externalClauses == null || !externalClauses.startsWith("where"))
+                if (whereStrBuf.length() > 0 || (externalClauses == null || !externalClauses.startsWith("where"))) {
                       sqlStatement.append(" where ").append(whereStrBuf);
-//                  }
-//                else 
+                  }
+                else 
                 	if (idColumnsOnly)
                   throw new JPersistException("useIdColumnsOnly is defined, but there are no Id field values available");
               }
@@ -992,7 +990,7 @@ final class ObjectSupport
               {
                 sqlStatement.append(" from " + identifierQuoteString + table.getTableName() + identifierQuoteString);
 
-                if (whereStrBuf.length() > 0 && (externalClauses == null || !externalClauses.startsWith("where")))
+                if (whereStrBuf.length() > 0 || (externalClauses == null || !externalClauses.startsWith("where")))
                   sqlStatement.append(" where ").append(whereStrBuf);
               }
             

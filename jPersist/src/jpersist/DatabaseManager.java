@@ -1736,6 +1736,11 @@ public final class DatabaseManager
         return saveObject(object, null, null, (Object[])null);
       }
     
+    public int saveObject(Object id, Object object) throws JPersistException
+    {
+      return saveObject(object, "where " +object.getClass().getSimpleName()+"id = ? ", id);
+    }
+    
     /**
      * Builds either an update or an insert depending on whether the object is persistent and was previously loaded, or not, respectively.
      *
@@ -1910,6 +1915,14 @@ public final class DatabaseManager
       {
         return deleteObject(object, nullValuesToInclude, null, (Object[])null);
       }
+    
+	public int deleteObject(Object id, Class objType) throws JPersistException {
+		try {
+			return deleteObject(objType.newInstance(), objType.getSimpleName() + "id = ? ", id);
+		} catch (Exception e) {
+			throw new JPersistException(e);
+		}
+	}
     
     /**
      * Builds a delete statement from the object.  externalClauses can begin with a where clause or anything after 
