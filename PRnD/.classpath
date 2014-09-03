@@ -8,5 +8,6 @@
 	<classpathentry kind="lib" path="/Persistence/lib/sqljdbc4.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/jPersist"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/MyWT"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Beans"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
