@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking"
+	xmlns:file="http://www.mulesoft.org/schema/mule/file" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:spring="http://www.springframework.org/schema/beans" version="EE-3.6.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/file http://www.mulesoft.org/schema/mule/file/current/mule-file.xsd
+http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+
+
+	<!-- <flow name="Flow1"> <file:inbound-endpoint responseTimeout="10000" 
+		doc:name="IN" path="E:\Projects\Pantha\Test\IN" /> <file:outbound-endpoint 
+		path="E:\Projects\Pantha\Test\OUT" responseTimeout="10000" doc:name="OUT" 
+		/> </flow> -->
+
+	<http:listener-config name="HTTP_Listener_Configuration"
+		host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration" />
+
+	<custom-transformer class="test.mule.HTTPResponseBuilder"
+		name="hello" doc:name="Hello" />
+
+	<flow name="Flow2">
+
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="/hello2" doc:name="HTTP" allowedMethods="GET">
+		</http:listener>
+
+		<component class="test.mule.HTTPResponseBuilder" />
+
+
+	</flow>
+
+	<flow name="Flow3">
+
+		<http:listener config-ref="HTTP_Listener_Configuration"
+			path="/hello3" allowedMethods="GET" />
+
+		<transformer ref="hello" />
+
+	</flow>
+
+</mule>
