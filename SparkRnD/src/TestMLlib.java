@@ -19,10 +19,9 @@ public class TestMLlib {
 		SparkConf conf = new SparkConf().setAppName("rnd").setMaster("local");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 
-		JavaRDD<String> stocks = sc.textFile("target/classes/data/stocks.csv");
+		JavaRDD<String> stocks = sc.textFile("target/classes/data_old/stocks.csv");
 
 		long totalStocks = stocks.count();
-
 		System.out.println("Total Stocks" + totalStocks);
 
 		JavaRDD<Vector> parsedData = stocks.map(new Function<String, Vector>() {
@@ -44,7 +43,7 @@ public class TestMLlib {
 			System.out.println(i++ + " =>" + center.size());
 		}
 
-		List<Integer> array = clusters.predict(parsedData).toArray();
+		List<Integer> array = clusters.predict(parsedData).collect();
 		
 		i = 1;
 		for (Integer integer : array) {
