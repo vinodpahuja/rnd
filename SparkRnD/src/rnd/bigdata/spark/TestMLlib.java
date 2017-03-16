@@ -1,3 +1,4 @@
+package rnd.bigdata.spark;
 import java.util.List;
 
 import org.apache.spark.SparkConf;

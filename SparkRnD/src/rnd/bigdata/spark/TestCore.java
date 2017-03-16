@@ -1,3 +1,6 @@
+package rnd.bigdata.spark;
+
+
 import java.util.Arrays;
 import java.util.List;
 

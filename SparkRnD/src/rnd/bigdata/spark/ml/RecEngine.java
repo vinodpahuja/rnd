@@ -1,4 +1,4 @@
-package rnd.ai.ml;
+package rnd.bigdata.spark.ml;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
@@ -16,10 +16,6 @@ import scala.Tuple2;
 public class RecEngine {
 
 	public static void main(String[] args) {
-
-		// Turn off unnecessary logging
-		//java.util.logging.Logger.getGlobal().setLevel(java.util.logging.Level.OFF);
-		org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
 
 		// Create Java spark context
 		SparkConf conf = new SparkConf().setAppName("Collaborative Filtering Example").setMaster("local");
