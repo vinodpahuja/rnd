@@ -1,11 +1,9 @@
 package rnd.bigdata.spark;
 import java.util.Arrays;
-import java.util.Collections;
 
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.api.java.function.VoidFunction;
-import org.apache.spark.sql.SQLContext;
 import org.bson.Document;
 
 import com.mongodb.spark.MongoSpark;

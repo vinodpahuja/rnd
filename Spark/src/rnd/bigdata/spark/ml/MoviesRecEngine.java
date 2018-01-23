@@ -13,22 +13,26 @@ import org.apache.spark.mllib.recommendation.Rating;
 
 import scala.Tuple2;
 
-public class RecEngine {
+public class MoviesRecEngine {
 
 	public static void main(String[] args) {
+		
+		// Turn off unnecessary logging
+		java.util.logging.Logger.getGlobal().setLevel(java.util.logging.Level.OFF);
+		org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
 
 		// Create Java spark context
-		SparkConf conf = new SparkConf().setAppName("Collaborative Filtering Example").setMaster("local");
+		SparkConf conf = new SparkConf().setAppName("Movies Reccomandation Engine").setMaster("local");
 		JavaSparkContext sc = new JavaSparkContext(conf);
 
 		// Read user-item rating file. format - userId,itemId,rating
-		JavaRDD<String> userItemRatingsFile = sc.textFile("rating.csv");
+		JavaRDD<String> userItemRatingsFile = sc.textFile("target/classes/data/rating.csv");
 
 		// Read item description file. format - itemId, itemName, Other Fields,..
-		JavaRDD<String> itemDescritpionFile = sc.textFile("movies.csv");
+		JavaRDD<String> itemDescritpionFile = sc.textFile("target/classes/data/movies.csv");
 
 		// Map file to Ratings(user,item,rating) tuples
-		JavaRDD<Rating> ratings = userItemRatingsFile.map(new Function<String, Rating>() {
+		JavaRDD<Rating> ratingRDD = userItemRatingsFile.map(new Function<String, Rating>() {
 			public Rating call(String s) {
 				String[] sarray = s.split(",");
 				return new Rating(Integer.parseInt(sarray[0]), Integer.parseInt(sarray[1]), Double.parseDouble(sarray[2]));
@@ -47,13 +51,13 @@ public class RecEngine {
 		// Build the recommendation model using ALS
 
 		int rank = 10; // 10 latent factors
-		int numIterations = Integer.parseInt("10"); // number of iterations
+		int numIterations = 10; // number of iterations
 
-		MatrixFactorizationModel model = ALS.trainImplicit(JavaRDD.toRDD(ratings), rank, numIterations);
+		MatrixFactorizationModel model = ALS.trainImplicit(JavaRDD.toRDD(ratingRDD), rank, numIterations);
 		// ALS.trainImplicit(arg0, arg1, arg2)
 
 		// Create user-item tuples from ratings
-		JavaRDD<Tuple2<Object, Object>> userProducts = ratings.map(new Function<Rating, Tuple2<Object, Object>>() {
+		JavaRDD<Tuple2<Object, Object>> userProducts = ratingRDD.map(new Function<Rating, Tuple2<Object, Object>>() {
 			public Tuple2<Object, Object> call(Rating r) {
 				return new Tuple2<Object, Object>(r.user(), r.product());
 			}
@@ -105,17 +109,15 @@ public class RecEngine {
 			}
 		}).join(itemDescritpion).values();
 
-		final StringBuilder str = new StringBuilder();
 		// Print the top recommendations for user 1.
 		recommendedItems.foreach(new VoidFunction<Tuple2<Rating, String>>() {
 			@Override
 			public void call(Tuple2<Rating, String> t) throws Exception {
-				String str2 = t._1.product() + "\t" + t._1.rating() + "\t" + t._2 + "\n";
-				System.out.println(str2);
-				str.append(str2);
+				String str = t._1.product() + "\t" + t._1.rating() + "\t" + t._2 + "\n";
+				System.out.println(str);
 			}
 		});
-
-		System.out.println(str);
+		
+		sc.close();
 	}
 }

@@ -20,13 +20,13 @@ import scala.Tuple2;
 import com.mongodb.spark.rdd.api.java.JavaMongoRDD;
 
 @SuppressWarnings({ "serial", "rawtypes", "resource" })
-public class MongoRecEngineALS {
+public class SalesRecEngineMongo {
 
 	public static void main(String[] args) {
 
 		// Turn off unnecessary logging
-		// java.util.logging.Logger.getGlobal().setLevel(java.util.logging.Level.OFF);
-		// org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
+		java.util.logging.Logger.getGlobal().setLevel(java.util.logging.Level.OFF);
+		org.apache.log4j.Logger.getRootLogger().setLevel(org.apache.log4j.Level.OFF);
 
 		// Read order file. format - user, product, quantity, amount
 		JavaMongoRDD<Document> orderRDD = TestMongo.getJavaMongoRDD("HeroOrder", "HeroOrderRec");
@@ -44,8 +44,8 @@ public class MongoRecEngineALS {
 								"		}, " + //
 								"		user : { $first : '$userName' }, " + //
 								"		product : { $first : '$productCode' }, " + //
-								// "		rating : { $sum : 1 }" + // count
-								// "		rating : { $sum : '$quantity' }" + // Volume
+								// " rating : { $sum : 1 }" + // count
+								// " rating : { $sum : '$quantity' }" + // Volume
 								"		rating : { $sum : '$amount' }" + // Value
 								"	}" + //
 								"}")));
@@ -63,7 +63,7 @@ public class MongoRecEngineALS {
 		// Build the recommendation model using ALS
 
 		int rank = 10; // 10 latent factors
-		int numIterations = Integer.parseInt("10"); // number of iterations
+		int numIterations = 10; // number of iterations
 
 		MatrixFactorizationModel model = ALS.train(JavaRDD.toRDD(ratings), rank, numIterations);
 		// ALS.trainImplicit(arg0, arg1, arg2)
@@ -94,8 +94,8 @@ public class MongoRecEngineALS {
 			@Override
 			public void call(Rating rating) throws Exception {
 				String str = "User : " + userMap[1].get(rating.user()) + //
-						" Product : " + productMap[1].get(rating.product()) + //
-						" Rating : " + rating.rating();
+				" Product : " + productMap[1].get(rating.product()) + //
+				" Rating : " + rating.rating();
 				System.out.println(str);
 			}
 		});
@@ -112,11 +112,11 @@ public class MongoRecEngineALS {
 				return v1.getString(key);
 			};
 		}).distinct().collect().forEach(new Consumer<String>() {
-			int index = 0;
-
+			
+			int sequence = 0;
 			public void accept(String user) {
-				map.put(user, index);
-				reverseMap.put(index++, user);
+				map.put(user, sequence);
+				reverseMap.put(sequence++, user);
 			};
 		});
 
